@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="51d29618-460b-4261-b284-bc65deef6f6b" name="aiic150_lxx">
+        <fileTransfer rootFolder="/nvme/lixixian" accessType="SFTP" host="103.79.27.150" port="60022" sshConfigId="01ae75f6-1a13-4a9c-81cd-f73a5241dd3c" sshConfig="lixixian@103.79.27.150:60022 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

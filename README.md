@@ -1,16 +1,35 @@
 # Simple Baselines for Human Pose Estimation and Tracking
 
 ## News
-- Our new work [High-Resolution Representations for Labeling Pixels and Regions](https://arxiv.org/abs/1904.04514) is available at [HRNet](https://github.com/HRNet). Our HRNet has been applied to a wide range of vision tasks, such as [image classification](https://github.com/HRNet/HRNet-Image-Classification), [objection detection](https://github.com/HRNet/HRNet-Object-Detection), [semantic segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation) and [facial landmark](https://github.com/HRNet/HRNet-Facial-Landmark-Detection).
-- Our new work [Deep High-Resolution Representation Learning for Human Pose Estimation](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch) has already been released at <https://github.com/leoxiaobin/deep-high-resolution-net.pytorch>. The best single HRNet can obtain an **AP of 77.0** on COCO test-dev2017 dataset and **92.3% of PCKh@0.5** on MPII test set. The new repositoty also support the SimpleBaseline method, and you are welcomed to try it.<br>
-- Our entry using this repo has won the winner of [PoseTrack2018 Multi-person Pose Tracking Challenge](https://posetrack.net/workshops/eccv2018/posetrack_eccv_2018_results.html)!<br>
-- Our entry using this repo ranked 2nd place in the [keypoint detection task of COCO 2018](http://cocodataset.org/#keypoints-leaderboard)!
+
+- Our new work [High-Resolution Representations for Labeling Pixels and Regions](https://arxiv.org/abs/1904.04514) is
+  available at [HRNet](https://github.com/HRNet). Our HRNet has been applied to a wide range of vision tasks, such
+  as [image classification](https://github.com/HRNet/HRNet-Image-Classification)
+  , [objection detection](https://github.com/HRNet/HRNet-Object-Detection)
+  , [semantic segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation)
+  and [facial landmark](https://github.com/HRNet/HRNet-Facial-Landmark-Detection).
+- Our new
+  work [Deep High-Resolution Representation Learning for Human Pose Estimation](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch)
+  has already been released at <https://github.com/leoxiaobin/deep-high-resolution-net.pytorch>. The best single HRNet
+  can obtain an **AP of 77.0** on COCO test-dev2017 dataset and **92.3% of PCKh@0.5** on MPII test set. The new
+  repositoty also support the SimpleBaseline method, and you are welcomed to try it.<br>
+- Our entry using this repo has won the winner
+  of [PoseTrack2018 Multi-person Pose Tracking Challenge](https://posetrack.net/workshops/eccv2018/posetrack_eccv_2018_results.html)!<br>
+- Our entry using this repo ranked 2nd place in
+  the [keypoint detection task of COCO 2018](http://cocodataset.org/#keypoints-leaderboard)!
 
 ## Introduction
-This is an official pytorch implementation of [*Simple Baselines for Human Pose Estimation and Tracking*](https://arxiv.org/abs/1804.06208). This work provides baseline methods that are surprisingly simple and effective, thus helpful for inspiring and evaluating new ideas for the field. State-of-the-art results are achieved on challenging benchmarks. On COCO keypoints valid dataset, our best **single model** achieves **74.3 of mAP**. You can reproduce our results using this repo. All models are provided for research purpose.    </br>
+
+This is an official pytorch implementation of [*Simple Baselines for Human Pose Estimation and
+Tracking*](https://arxiv.org/abs/1804.06208). This work provides baseline methods that are surprisingly simple and
+effective, thus helpful for inspiring and evaluating new ideas for the field. State-of-the-art results are achieved on
+challenging benchmarks. On COCO keypoints valid dataset, our best **single model** achieves **74.3 of mAP**. You can
+reproduce our results using this repo. All models are provided for research purpose.    </br>
 
 ## Main Results
+
 ### Results on MPII val
+
 | Arch | Head | Shoulder | Elbow | Wrist | Hip | Knee | Ankle | Mean | Mean@0.1|
 |---|---|---|---|---|---|---|---|---|---|
 | 256x256_pose_resnet_50_d256d256d256 | 96.351 | 95.329 | 88.989 | 83.176 | 88.420 | 83.960 | 79.594 | 88.532 | 33.911 |
@@ -21,9 +40,11 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 384x384_pose_resnet_152_d256d256d256 | 96.794 | 95.618 | 90.080 | 86.225 | 89.700 | 86.862 | 82.853 | 90.200 | 39.433 |
 
 ### Note:
+
 - Flip test is used.
 
 ### Results on COCO val2017 with detector having human AP of 56.4 on COCO val2017 dataset
+
 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 256x192_pose_resnet_50_d256d256d256 | 0.704 | 0.886 | 0.783 | 0.671 | 0.772 | 0.763 | 0.929 | 0.834 | 0.721 | 0.824 |
@@ -33,25 +54,32 @@ This is an official pytorch implementation of [*Simple Baselines for Human Pose 
 | 256x192_pose_resnet_152_d256d256d256 | 0.720 | 0.893 | 0.798 | 0.687 | 0.789 | 0.778 | 0.934 | 0.846 | 0.736 | 0.839 |
 | 384x288_pose_resnet_152_d256d256d256 | 0.743 | 0.896 | 0.811 | 0.705 | 0.816 | 0.797 | 0.937 | 0.858 | 0.751 | 0.863 |
 
-
 ### Results on *Caffe-style* ResNet
+
 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 256x192_pose_resnet_50_*caffe*_d256d256d256 | 0.704 | 0.914 | 0.782 | 0.677 | 0.744 | 0.735 | 0.921 | 0.805 | 0.704 | 0.783 |
-| 256x192_pose_resnet_101_*caffe*_d256d256d256 | 0.720 | 0.915 | 0.803 | 0.693 | 0.764 | 0.753 | 0.928 | 0.821 | 0.720 | 0.802 |
-| 256x192_pose_resnet_152_*caffe*_d256d256d256 | 0.728 | 0.925 | 0.804 | 0.702 | 0.766 | 0.760 | 0.931 | 0.828 | 0.729 | 0.806 |
-
+| 256x192_pose_resnet_50_*
+caffe*_d256d256d256 | 0.704 | 0.914 | 0.782 | 0.677 | 0.744 | 0.735 | 0.921 | 0.805 | 0.704 | 0.783 |
+| 256x192_pose_resnet_101_*
+caffe*_d256d256d256 | 0.720 | 0.915 | 0.803 | 0.693 | 0.764 | 0.753 | 0.928 | 0.821 | 0.720 | 0.802 |
+| 256x192_pose_resnet_152_*
+caffe*_d256d256d256 | 0.728 | 0.925 | 0.804 | 0.702 | 0.766 | 0.760 | 0.931 | 0.828 | 0.729 | 0.806 |
 
 ### Note:
+
 - Flip test is used.
 - Person detector has person AP of 56.4 on COCO val2017 dataset.
 - Difference between *PyTorch-style* and *Caffe-style* ResNet is the position of stride=2 convolution
 
 ## Environment
-The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA P100 GPU cards. Other platforms or GPU cards are not fully tested.
+
+The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. The code is developed and tested using 4
+NVIDIA P100 GPU cards. Other platforms or GPU cards are not fully tested.
 
 ## Quick start
+
 ### Installation
+
 1. Install pytorch >= v0.4.0 following [official instruction](https://pytorch.org/).
 2. Disable cudnn for batch_norm:
    ```
@@ -61,7 +89,8 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    # for pytorch v0.4.1
    sed -i "1254s/torch\.backends\.cudnn\.enabled/False/g" ${PYTORCH}/torch/nn/functional.py
    ```
-   Note that instructions like # PYTORCH=/path/to/pytorch indicate that you should pick a path where you'd like to have pytorch installed  and then set an environment variable (PYTORCH in this case) accordingly.
+   Note that instructions like # PYTORCH=/path/to/pytorch indicate that you should pick a path where you'd like to have
+   pytorch installed and then set an environment variable (PYTORCH in this case) accordingly.
 1. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT}.
 2. Install dependencies:
    ```
@@ -83,9 +112,15 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    # not to install the COCO API into global site-packages
    python3 setup.py install --user
    ```
-   Note that instructions like # COCOAPI=/path/to/install/cocoapi indicate that you should pick a path where you'd like to have the software cloned and then set an environment variable (COCOAPI in this case) accordingly.
-3. Download pytorch imagenet pretrained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo) and caffe-style pretrained models from [GoogleDrive](https://drive.google.com/drive/folders/1yJMSFOnmzwhA4YYQS71Uy7X1Kl_xq9fN?usp=sharing). 
-4. Download mpii and coco pretrained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw) or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). Please download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
+   Note that instructions like # COCOAPI=/path/to/install/cocoapi indicate that you should pick a path where you'd like
+   to have the software cloned and then set an environment variable (COCOAPI in this case) accordingly.
+3. Download pytorch imagenet pretrained models
+   from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo) and caffe-style
+   pretrained models
+   from [GoogleDrive](https://drive.google.com/drive/folders/1yJMSFOnmzwhA4YYQS71Uy7X1Kl_xq9fN?usp=sharing).
+4. Download mpii and coco pretrained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw)
+   or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). Please
+   download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
 
    ```
    ${POSE_ROOT}
@@ -136,10 +171,15 @@ The code is developed using python 3.6 on Ubuntu 16.04. NVIDIA GPUs are needed. 
    ├── README.md
    └── requirements.txt
    ```
-   
+
 ### Data preparation
-**For MPII data**, please download from [MPII Human Pose Dataset](http://human-pose.mpi-inf.mpg.de/). The original annotation files are in matlab format. We have converted them into json format, you also need to download them from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW00SqrairNetmeVu4) or [GoogleDrive](https://drive.google.com/drive/folders/1En_VqmStnsXMdldXA6qpqEyDQulnmS3a?usp=sharing).
-Extract them under {POSE_ROOT}/data, and make them look like this:
+
+**For MPII data**, please download from [MPII Human Pose Dataset](http://human-pose.mpi-inf.mpg.de/). The original
+annotation files are in matlab format. We have converted them into json format, you also need to download them
+from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW00SqrairNetmeVu4)
+or [GoogleDrive](https://drive.google.com/drive/folders/1En_VqmStnsXMdldXA6qpqEyDQulnmS3a?usp=sharing). Extract them
+under {POSE_ROOT}/data, and make them look like this:
+
 ```
 ${POSE_ROOT}
 |-- data
@@ -155,8 +195,12 @@ ${POSE_ROOT}
             |-- 000003072.jpg
 ```
 
-**For COCO data**, please download from [COCO download](http://cocodataset.org/#download), 2017 Train/Val is needed for COCO keypoints training and validation. We also provide person detection result of COCO val2017 to reproduce our multi-person pose estimation results. Please download from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blWzzDXoz5BeFl8sWM-) or [GoogleDrive](https://drive.google.com/drive/folders/1fRUDNUDxe9fjqcRZ2bnF_TKMlO0nB_dk?usp=sharing).
-Download and extract them under {POSE_ROOT}/data, and make them look like this:
+**For COCO data**, please download from [COCO download](http://cocodataset.org/#download), 2017 Train/Val is needed for
+COCO keypoints training and validation. We also provide person detection result of COCO val2017 to reproduce our
+multi-person pose estimation results. Please download from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blWzzDXoz5BeFl8sWM-)
+or [GoogleDrive](https://drive.google.com/drive/folders/1fRUDNUDxe9fjqcRZ2bnF_TKMlO0nB_dk?usp=sharing). Download and
+extract them under {POSE_ROOT}/data, and make them look like this:
+
 ```
 ${POSE_ROOT}
 |-- data
@@ -212,12 +256,15 @@ python pose_estimation/train.py \
 ```
 
 ### Other Implementations
+
 - TensorFlow [[Version1](https://github.com/mks0601/TF-SimpleHumanPose)]
 - PaddlePaddle [[Version1](https://github.com/PaddlePaddle/models/tree/develop/fluid/PaddleCV/human_pose_estimation)]
 - Gluon [[Version1](https://gluon-cv.mxnet.io/model_zoo/pose.html)]
 
 ### Citation
+
 If you use our code or models in your research, please cite with:
+
 ```
 @inproceedings{xiao2018simple,
     author={Xiao, Bin and Wu, Haiping and Wei, Yichen},
