@@ -9,3 +9,5 @@ scikit-image
 tensorboardX>=1.2
 torchvision
 torch
+json_tricks
+pycocotools
